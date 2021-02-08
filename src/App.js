@@ -7,13 +7,13 @@ import SimpleContext from "./simpleContext/SimpleContext";
 
 const App = () => {
   const context = useContext(SimpleContext);
+  const { handleSearchUsers } = context;
   return (
     <div className="d-flex flex-column align-items-center">
       <Header />
-      <Search handleSearchUsers={context.handleSearchUsers} />
+      <Search handleSearchUsers={handleSearchUsers} />
       <Users />
       <ToastContainer />
-
     </div>
   );
 };
