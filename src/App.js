@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import { ToastContainer } from "react-toastify";
+import Header from "./components/header/Header";
+import Search from "./components/searchSection/Search";
+import Users from "./components/user/Users";
+import SimpleContext from "./simpleContext/SimpleContext";
 
-function App() {
+const App = () => {
+  const context = useContext(SimpleContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="d-flex flex-column align-items-center">
+      <Header />
+      <Search handleSearchUsers={context.handleSearchUsers} />
+      <Users />
+      <ToastContainer />
+
     </div>
   );
-}
+};
 
 export default App;
